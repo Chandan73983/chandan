@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Course Dropdown</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "courses.php",
+                type: "POST",
+                dataType: "json",
+                success: function(data) {
+                    var options = "<option value=''>Select a course</option>";
+                    $.each(data, function(index, course) {
+                        options += "<option value='" + course.id + "'>" + course.name + "</option>";
+                    });
+                    $("#courseDropdown").html(options);
+                },
+                error: function() {
+                    alert("❌ Could not load course list.");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <br>
+    <label>Choose a Course:</label>
+    <select id="courseDropdown"></select>
+
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student AJAX Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function loadStudents() {
+            $.getJSON("fetch.php", function(data) {
+                var rows = "";
+                $.each(data, function(i, student) {
+                    rows += "<tr><td>" + student.name + "</td><td>" + student.email + "</td></tr>";
+                });
+                $("#studentTable tbody").html(rows);
+            });
+        }
+
+        $(document).ready(function() {
+            loadStudents();
+
+            $("#studentForm").submit(function(e) {
+                e.preventDefault();
+                $.post("submit.php", $(this).serialize(), function() {
+                    loadStudents();
+                    $("#studentForm")[0].reset();
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <br>
+    <h2>🧾 Add New Student</h2>
+    <form id="studentForm">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+
+        <button type="submit">Add Student</button>
+    </form>
+    <br>
+    <h2>📋 Student List</h2>
+    <table border="1" cellpadding="10" id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX Setup Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Global settings for all AJAX
+        $.ajaxSetup({
+            type: "POST",
+            url: "server.php",
+            timeout: 5000,
+            error: function(xhr, status) {
+                $("#output").html("❌ Global Error: " + status);
+            }
+        });
+
+        $(document).ready(function() {
+            $("#loadBtn").click(function() {
+                $.ajax({
+                    data: {
+                        user: "Rachana"
+                    }, // only overriding the data
+                    success: function(response) {
+                        $("#output").html("✅ " + response);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <br>
+    <button id="loadBtn">Send AJAX with Global Settings</button>
+    <div id="output"></div>
+
+
+</body>
+
+</html>

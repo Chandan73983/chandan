@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .container div {
+            background: crimson;
+            padding: 50px;
+            color: #ffffff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Grid Column</h1>
+    <div class="container">
+
+        <div>Column 1</div>
+        <div>Column 1</div>
+        <div>Column 1</div>
+
+    </div>
+</body>
+
+</html>

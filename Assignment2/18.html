@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #833AB4;
+            background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(29, 208, 253, 1) 50%, rgba(92, 8, 82, 1) 100%);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: #ff0000;
+            background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(253, 212, 29, 1) 100%);
+            color: #fff;
+            padding: 50px;
+            font-size: 25px;
+            border-radius: 15px;
+        }
+
+        form input {
+            background: rgba(255, 255, 255, .6);
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+        }
+
+        button {
+            border: none;
+            font-size: 20px;
+            color: #fff;
+            outline: none;
+            background: green;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form onsubmit="valiteform()">
+            Name:<br>
+            <input type="text" id="name" placeholder="Enter your Name..."><br><br> Email:
+            <br>
+            <input type="email" id="email" placeholder="enter your Email..."><br><br> Password:<br>
+            <input type="password" id="password" placeholder="Enter your Passord...">
+            <br><br>
+            <button type="submit">Form Submit</button>
+        </form>
+    </div>
+    <script>
+        function valiteform() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (name === "") {
+                alert("Name is Required");
+            }
+
+            if (email === "") {
+                alert("Eamil is Required");
+            }
+            if (password === "") {
+                alert("Password is Required");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav {
+            background: #ffffff;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        
+        .navbar img {
+            margin-bottom: 5px;
+        }
+        
+        .navbar h2 {
+            text-transform: uppercase;
+        }
+        
+        ul {
+            display: flex;
+            gap: 20px;
+        }
+        
+        ul li {
+            list-style: none;
+        }
+        
+        ul li a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 18px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            border-radius: 8px;
+            transition: .5s;
+        }
+        
+        ul li a:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 3px 30px rgba(0, 0, 0, .3);
+            background: crimson;
+            color: white;
+        }
+        
+        .hamp {
+            margin-right: 25px;
+        }
+        
+        @media (max-width:700px) {
+            ul {
+                display: none;
+            }
+            .hamp {
+                display: block;
+                margin-right: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <img width="50" height="50" src="https://img.icons8.com/comic/100/wolf.png" alt="wolf" />
+            <h2>Wild<span style="color: red;">Wolf</span></h2>
+        </div>
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Course</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+        <div class="hamp">
+            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/menu--v1.png" alt="menu--v1" />
+        </div>
+    </nav>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .cards {
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .card {
+      width: 100%;
+      transition: .3s;
+    }
+    
+    #maincard {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .5);
+    }
+  </style>
+  
+</head>
+
+<body>
+  
+  <div class="container shadow-lg p-3 mb-5 bg-body rounded mt-5">
+    <h2 class="text-center mb-4">Computer Course Plan</h2>
+    <div class="row g-4">
+      
+      <div class="col-12 col-md-6 col-lg-4">
+        
+        <div class="cards">
+          <div class="card text-center mt-3">
+            <div class="card-body">
+              <h5 class="card-title">Basic Computer</h5>
+              <h2>1300/Month</h2>
+              <h3>Duration</h3>
+              <p>3 Months</p>
+              <p class="card-text">
+                The Basic Computer Course is designed for individuals who are new to computers or want to improve their foundational
+              </p>
+              <a href="#" class="btn btn-primary">Choose Course</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div id="maincard" class="card text-center mt-3  border border-5 border-primary">
+          <div class="card-body">
+            <h5 class="card-title">Advance Course</h5>
+            <h2>4000/Month</h2>
+            <h3>Duration</h3>
+            <p>18 Months</p>
+            <p class="card-text">
+              Dive into the world of Digital Marketing with our comprehensive course. Learn SEO, social media marketing, PPC, content
+            </p>
+            <a href="#" class="btn btn-success">Choose Course</a>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card text-center mt-3">
+          <div class="card-body">
+            <h5 class="card-title">Advance++ Course</h5>
+            <h2>10000/Month</h2>
+            <h3>Duration</h3>
+            <p>36 Months</p>
+            <p class="card-text">
+              Bachelor of Computer Applications (BCA) is a 3-year undergraduate program designed for students aspiring to buil
+            </p>
+            <a href="#" class="btn btn-primary">Choose Course</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

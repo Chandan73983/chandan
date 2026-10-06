@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Sans-Serif;
+        }
+        
+        section {
+            margin-top: 50px;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        form {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            background: #e8e8e8;
+            padding: 50px;
+            border-radius: 15px;
+        }
+        
+        label {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            align-items: center;
+            background: #fdfdfd;
+        }
+        
+        input:focus,
+        select:focus {
+            outline: none;
+            border: 1px solid blue;
+        }
+        
+        .butt {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .butt:hover {
+            background: #1b7afc;
+            color: #fff;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+
+        <form>
+            <h2>Regitration Form</h2>
+            <label>Name</label><br />
+            <input type="text" placeholder="Inter your Name" />
+            <br /><br />
+            <label>Email</label><br />
+            <input type="email" placeholder="Inter your Email" />
+            <br /><br />
+            <label>Password</label><br />
+            <input type="password" placeholder="Inter your Password" />
+            <br /><br />
+            <label>Gender :</label><br />
+            <input type="radio" name="gender" />Male
+            <input type="radio" name="gender" />Female <br /><br />
+            <label>Skill :</label><br />
+            <input type="checkbox" />HTML <input type="checkbox" />CSS
+            <input type="checkbox" />Javascript <input type="checkbox" />PHP
+            <br /><br />
+            <label>Course :</label><br />
+            <select>
+                <option>Select Course</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="Javascript">Javascript</option>
+                <option value="PHP">PHP</option>
+            </select>
+            <br /><br />
+
+            <button class="butt" type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+
+</html>

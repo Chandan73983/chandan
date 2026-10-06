@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #833AB4;
+            background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(29, 208, 253, 1) 50%, rgba(92, 8, 82, 1) 100%);
+        }
+
+        .container {
+            width: 300px;
+            background: #22C1C3;
+            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        #content img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        button {
+            border-radius: 6px;
+            border: none;
+            background: #2A7B9B;
+            background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+            margin-top: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="text-align: center;">Show And Hide</h1>
+        <div id="content">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" alt="Green Forest">
+
+            <h2>Green Forest</h2>
+
+            <p>
+                Majestic mountains surrounded by lush greenery, soft clouds, and breathtaking scenery create a peaceful
+                natural landscape.
+            </p>
+        </div>
+
+        <button id="fadein">Fade In</button>
+        <button id="fadeout">Fade Out</button>
+
+    </div>
+
+    <script>
+        $("#fadein").click(function () {
+            $("#content").fadeIn(500);
+        });
+
+        $("#fadeout").click(function () {
+            $("#content").fadeOut(500);
+        });
+    </script>
+
+</body>
+
+</html>

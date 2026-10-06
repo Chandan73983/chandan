@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chained AJAX Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#load").click(function() {
+                $("#result").html("🔄 Fetching...");
+
+                $.ajax({
+                    url: "step1.php",
+                    method: "POST"
+                }).done(function(data1) {
+                    $("#result").append("<br>✅ Step 1: " + data1);
+
+
+                    $.ajax({
+                        url: "step2.php",
+                        method: "POST",
+                        data: {
+                            name: data1
+                        }
+                    }).done(function(data2) {
+                        $("#result").append("<br>✅ Step 2: " + data2);
+                    }).fail(function() {
+                        $("#result").append("<br>❌ Step 2 failed");
+                    });
+
+
+                }).fail(function() {
+                    $("#result").html("❌ Step 1 failed");
+                }).always(function() {
+                    console.log("Step 1 completed");
+                });
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <br>
+    <button id="load">Start Process</button>
+    <div id="result"></div>
+
+
+</body>
+
+</html>

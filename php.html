@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PHP + MySQL Complete Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+            line-height: 1.6;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #4a3f8f;
+            font-size: 28px;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        h2 {
+            color: #fff;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 18px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            color: #4a3f8f;
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-left: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        
+        th {
+            background: #f0f2f7;
+            color: #333;
+            text-align: left;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 9px 12px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        td code,
+        p code,
+        li code {
+            background: #f4f4f8;
+            color: #c7254e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 12.5px;
+        }
+        
+        pre {
+            background: #2d3142;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 12.5px;
+            overflow-x: auto;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+            font-size: 13.5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #999;
+            font-size: 12px;
+        }
+        /* PRINT STYLES */
+        
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                padding: 20px;
+                max-width: 100%;
+            }
+            h2 {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            pre {
+                background: #2d3142 !important;
+                color: #f8f8f2 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            th {
+                background: #f0f2f7 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            table,
+            pre,
+            h2,
+            h3 {
+                page-break-inside: avoid;
+            }
+            @page {
+                margin: 15mm;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h1>📘 PHP + MySQL Complete Reference</h1>
+        <p class="subtitle">Beginner to Intermediate — All Important Functions & Queries</p>
+
+        <!-- SECTION 1 -->
+        <h2>1. Database Connection</h2>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>mysqli_connect(host, user, pass, db, port)</code></td>
+                <td>Database se connect karna</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_connect_error()</code></td>
+                <td>Connection error dikhana</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_close($conn)</code></td>
+                <td>Connection band karna</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_select_db($conn, "db")</code></td>
+                <td>Database select karna</td>
+            </tr>
+        </table>
+        <pre>$conn = mysqli_connect("127.0.0.1","root","","users",3308);
+if(!$conn) die("Failed: " . mysqli_connect_error());</pre>
+
+        <!-- SECTION 2 -->
+        <h2>2. INSERT — Data Daalna</h2>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>INSERT INTO users (name, email) VALUES ('Ravi','r@x.com')</code></td>
+                <td>Single row</td>
+            </tr>
+            <tr>
+                <td><code>INSERT INTO users VALUES ('Ravi','r@x.com')</code></td>
+                <td>Saare columns</td>
+            </tr>
+            <tr>
+                <td><code>INSERT INTO users (name) VALUES ('A'),('B'),('C')</code></td>
+                <td>Multiple rows</td>
+            </tr>
+            <tr>
+                <td><code>INSERT INTO users SELECT * FROM old_users</code></td>
+                <td>Copy from another table</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 3 -->
+        <h2>3. SELECT — Data Nikalna</h2>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users</code></td>
+                <td>Saare columns</td>
+            </tr>
+            <tr>
+                <td><code>SELECT name, email FROM users</code></td>
+                <td>Specific columns</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users WHERE id=5</code></td>
+                <td>Condition</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users LIMIT 10</code></td>
+                <td>Sirf 10 rows</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users LIMIT 5,10</code></td>
+                <td>Offset + limit</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users ORDER BY name ASC</code></td>
+                <td>A-Z sort</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users ORDER BY id DESC</code></td>
+                <td>Ulta sort</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users WHERE name LIKE 'R%'</code></td>
+                <td>"R" se shuru</td>
+            </tr>
+            <tr>
+                <td><code>SELECT COUNT(*) FROM users</code></td>
+                <td>Total count</td>
+            </tr>
+            <tr>
+                <td><code>SELECT DISTINCT email FROM users</code></td>
+                <td>Unique values</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users WHERE id IN (1,2,3)</code></td>
+                <td>Multiple ids</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users WHERE age BETWEEN 18 AND 30</code></td>
+                <td>Range</td>
+            </tr>
+            <tr>
+                <td><code>SELECT * FROM users WHERE email IS NULL</code></td>
+                <td>NULL check</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 4 -->
+        <h2>4. UPDATE — Data Badalna</h2>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>UPDATE users SET name='Ravi' WHERE id=5</code></td>
+                <td>Ek row update</td>
+            </tr>
+            <tr>
+                <td><code>UPDATE users SET name='X', email='y@z.com' WHERE id=5</code></td>
+                <td>Multiple columns</td>
+            </tr>
+            <tr>
+                <td><code>UPDATE users SET name='X' WHERE age>18</code></td>
+                <td>Condition pe update</td>
+            </tr>
+            <tr>
+                <td><code>UPDATE users SET count=count+1 WHERE id=5</code></td>
+                <td>Increment</td>
+            </tr>
+            <tr>
+                <td><code>UPDATE users SET name='X' WHERE id=5 LIMIT 1</code></td>
+                <td>Limit ke saath</td>
+            </tr>
+        </table>
+        <div class="warning">⚠️ <b>WHERE bhoolna mat!</b> Warna saari rows update ho jayengi.</div>
+
+        <!-- SECTION 5 -->
+        <h2>5. DELETE — Data Hatana</h2>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>DELETE FROM users WHERE id=5</code></td>
+                <td>Ek row delete</td>
+            </tr>
+            <tr>
+                <td><code>DELETE FROM users WHERE age<18</code></td>
+                <td>Condition pe delete</td>
+            </tr>
+            <tr>
+                <td><code>DELETE FROM users WHERE id IN (1,2,3)</code></td>
+                <td>Multiple ids</td>
+            </tr>
+            <tr>
+                <td><code>DELETE FROM users WHERE id=5 LIMIT 1</code></td>
+                <td>Limit ke saath</td>
+            </tr>
+            <tr>
+                <td><code>TRUNCATE TABLE users</code></td>
+                <td>Poori table khali (fast)</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 6 -->
+        <h2>6. ALTER TABLE — Structure Badalna</h2>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users ADD COLUMN phone VARCHAR(15)</code></td>
+                <td>Naya column add</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users ADD COLUMN age INT DEFAULT 18</code></td>
+                <td>Default value ke saath</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users ADD COLUMN phone VARCHAR(15) AFTER email</code></td>
+                <td>Position set</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users DROP COLUMN phone</code></td>
+                <td>Column delete</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users MODIFY phone VARCHAR(20)</code></td>
+                <td>Type change</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users CHANGE phone mobile VARCHAR(20)</code></td>
+                <td>Naam + type change</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users RENAME TO customers</code></td>
+                <td>Table rename</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users ADD PRIMARY KEY (id)</code></td>
+                <td>Primary key add</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users ADD UNIQUE (email)</code></td>
+                <td>Unique constraint</td>
+            </tr>
+            <tr>
+                <td><code>ALTER TABLE users ADD INDEX idx_name (name)</code></td>
+                <td>Index add</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 7 -->
+        <h2>7. CREATE / DROP TABLE</h2>
+        <pre>CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    terms_accepted VARCHAR(3) DEFAULT 'no',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</pre>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>CREATE DATABASE users</code></td>
+                <td>Database banana</td>
+            </tr>
+            <tr>
+                <td><code>DROP DATABASE users</code></td>
+                <td>Database delete</td>
+            </tr>
+            <tr>
+                <td><code>DROP TABLE users</code></td>
+                <td>Table delete</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 8 -->
+        <h2>8. WHERE Clause — Operators</h2>
+        <table>
+            <tr>
+                <th>Operator</th>
+                <th>Kaam</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><code>=</code></td>
+                <td>Equal</td>
+                <td><code>WHERE id=5</code></td>
+            </tr>
+            <tr>
+                <td><code>!= / &lt;&gt;</code></td>
+                <td>Not equal</td>
+                <td><code>WHERE id!=5</code></td>
+            </tr>
+            <tr>
+                <td><code>&gt; &lt; &gt;= &lt;=</code></td>
+                <td>Comparison</td>
+                <td><code>WHERE age&gt;18</code></td>
+            </tr>
+            <tr>
+                <td><code>AND / OR / NOT</code></td>
+                <td>Logic</td>
+                <td><code>WHERE a AND b</code></td>
+            </tr>
+            <tr>
+                <td><code>IN / NOT IN</code></td>
+                <td>List check</td>
+                <td><code>WHERE id IN (1,2)</code></td>
+            </tr>
+            <tr>
+                <td><code>BETWEEN</code></td>
+                <td>Range</td>
+                <td><code>WHERE age BETWEEN 18 AND 30</code></td>
+            </tr>
+            <tr>
+                <td><code>LIKE</code></td>
+                <td>Pattern</td>
+                <td><code>WHERE name LIKE 'R%'</code></td>
+            </tr>
+            <tr>
+                <td><code>IS NULL</code></td>
+                <td>Khali</td>
+                <td><code>WHERE email IS NULL</code></td>
+            </tr>
+        </table>
+
+        <!-- SECTION 9 -->
+        <h2>9. LIMIT / OFFSET</h2>
+        <table>
+            <tr>
+                <th>Query</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>LIMIT 5</code></td>
+                <td>Sirf 5 rows</td>
+            </tr>
+            <tr>
+                <td><code>LIMIT 10 OFFSET 5</code></td>
+                <td>5 skip karke 10 rows</td>
+            </tr>
+            <tr>
+                <td><code>LIMIT 5, 10</code></td>
+                <td>Same as above</td>
+            </tr>
+            <tr>
+                <td><code>LIMIT 1</code></td>
+                <td>Sirf 1 row (login me use)</td>
+            </tr>
+        </table>
+        <pre>$page = 2;
+$per_page = 10;
+$offset = ($page - 1) * $per_page;
+$sql = "SELECT * FROM users LIMIT $per_page OFFSET $offset";</pre>
+
+        <!-- SECTION 10 -->
+        <h2>10. PHP MySQL Functions</h2>
+
+        <h3>Connection & Query</h3>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>mysqli_connect()</code></td>
+                <td>Connect</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_query($conn, $sql)</code></td>
+                <td>Query chalao</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_error($conn)</code></td>
+                <td>Last error</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_errno($conn)</code></td>
+                <td>Error number</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_affected_rows($conn)</code></td>
+                <td>Kitni rows affect hui</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_insert_id($conn)</code></td>
+                <td>Last inserted id</td>
+            </tr>
+        </table>
+
+        <h3>Result Handling</h3>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>mysqli_num_rows($result)</code></td>
+                <td>Kitni rows aayi</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_fetch_assoc($result)</code></td>
+                <td>Row → associative array</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_fetch_row($result)</code></td>
+                <td>Row → numeric array</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_fetch_array($result)</code></td>
+                <td>Row → both arrays</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_fetch_object($result)</code></td>
+                <td>Row → object</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_fetch_all($result, MYSQLI_ASSOC)</code></td>
+                <td>Saari rows ek saath</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_free_result($result)</code></td>
+                <td>Memory free</td>
+            </tr>
+        </table>
+
+        <h3>Prepared Statements (Secure)</h3>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>mysqli_prepare($conn, $sql)</code></td>
+                <td>Query prepare</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_stmt_bind_param($stmt, "ssi", ...)</code></td>
+                <td>Values bind</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_stmt_execute($stmt)</code></td>
+                <td>Execute</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_stmt_get_result($stmt)</code></td>
+                <td>Result nikalo</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_stmt_close($stmt)</code></td>
+                <td>Close</td>
+            </tr>
+        </table>
+
+        <h3>bind_param Types</h3>
+        <table>
+            <tr>
+                <th>Letter</th>
+                <th>Matlab</th>
+            </tr>
+            <tr>
+                <td><code>s</code></td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td><code>i</code></td>
+                <td>Integer</td>
+            </tr>
+            <tr>
+                <td><code>d</code></td>
+                <td>Double / Float</td>
+            </tr>
+            <tr>
+                <td><code>b</code></td>
+                <td>Blob</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 11 -->
+        <h2>11. Security & Password</h2>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>password_hash($pass, PASSWORD_DEFAULT)</code></td>
+                <td>Password hash karo</td>
+            </tr>
+            <tr>
+                <td><code>password_verify($pass, $hash)</code></td>
+                <td>Hash check karo</td>
+            </tr>
+            <tr>
+                <td><code>mysqli_real_escape_string($conn, $str)</code></td>
+                <td>Special chars escape</td>
+            </tr>
+            <tr>
+                <td><code>htmlspecialchars($str)</code></td>
+                <td>HTML chars safe</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 12 -->
+        <h2>12. Session Functions</h2>
+        <table>
+            <tr>
+                <th>Function</th>
+                <th>Kaam</th>
+            </tr>
+            <tr>
+                <td><code>session_start()</code></td>
+                <td>Session shuru</td>
+            </tr>
+            <tr>
+                <td><code>$_SESSION['key'] = value</code></td>
+                <td>Value store</td>
+            </tr>
+            <tr>
+                <td><code>$_SESSION['key']</code></td>
+                <td>Value nikalna</td>
+            </tr>
+            <tr>
+                <td><code>unset($_SESSION['key'])</code></td>
+                <td>Ek delete</td>
+            </tr>
+            <tr>
+                <td><code>session_unset()</code></td>
+                <td>Sab unset</td>
+            </tr>
+            <tr>
+                <td><code>session_destroy()</code></td>
+                <td>Session destroy</td>
+            </tr>
+        </table>
+
+        <!-- SECTION 13 -->
+        <h2>13. Common Examples</h2>
+
+        <h3>Login Check</h3>
+        <pre>$sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) == 1) {
+    $row = mysqli_fetch_assoc($result);
+    if (password_verify($password, $row['password'])) {
+        $_SESSION['user_id'] = $row['id'];
+    }
+}</pre>
+
+        <h3>Register</h3>
+        <pre>$hash = password_hash($password, PASSWORD_DEFAULT);
+$sql = "INSERT INTO users (name, email, password, terms_accepted)
+        VALUES ('$name', '$email', '$hash', '$term')";
+mysqli_query($conn, $sql);</pre>
+
+        <h3>Update Profile</h3>
+        <pre>$sql = "UPDATE users SET name='$name', email='$email' WHERE id=$user_id";
+mysqli_query($conn, $sql);</pre>
+
+        <h3>Delete User</h3>
+        <pre>$sql = "DELETE FROM users WHERE id=$id";
+mysqli_query($conn, $sql);</pre>
+
+        <!-- SECTION 14 -->
+        <h2>14. Quick Cheat Sheet</h2>
+        <pre>CONNECT     → mysqli_connect()
+INSERT      → INSERT INTO table VALUES (...)
+SELECT      → SELECT * FROM table WHERE ... LIMIT ...
+UPDATE      → UPDATE table SET col=val WHERE ...
+DELETE      → DELETE FROM table WHERE ...
+ADD COLUMN  → ALTER TABLE ADD COLUMN ...
+DROP COLUMN → ALTER TABLE DROP COLUMN ...
+MODIFY      → ALTER TABLE MODIFY ...
+RENAME      → ALTER TABLE RENAME TO ...</pre>
+
+        <div class="footer">
+            © PHP + MySQL Complete Reference — Print & Save as PDF
+        </div>
+
+    </div>
+
+</body>
+
+</html>

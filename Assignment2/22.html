@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #833AB4;
+            background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(29, 208, 253, 1) 50%, rgba(92, 8, 82, 1) 100%);
+        }
+        
+        .add {
+            background: #22C1C3;
+            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        
+        #btn {
+            width: 700px;
+            padding: 30px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btn">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquam laborum culpa doloremque architecto dolorem vero nobis debitis atque ab ut voluptatibus assumenda quia veritatis ipsam vitae, consectetur porro et!
+
+    </div>
+    <script>
+        $("#btn").click(function() {
+            if ($(this).hasClass("add")) {
+                $(this).removeClass("add");
+            } else {
+                $(this).addClass("add");
+            }
+        });
+    </script>
+</body>
+
+</html>
